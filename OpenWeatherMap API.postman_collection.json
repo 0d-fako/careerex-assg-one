@@ -1,0 +1,119 @@
+{
+  "info": {
+    "_postman_id": "f92fbca1-1de7-4051-a9c8-e57964daeb9b",
+    "name": "OpenWeatherMap API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "37519041"
+  },
+  "item": [
+    {
+      "name": "Basic Weather Request",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=c4d133b015020c9b48164d3215dc5d93",
+          "protocol": "https",
+          "host": [
+            "api",
+            "openweathermap",
+            "org"
+          ],
+          "path": [
+            "data",
+            "2.5",
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Lagos"
+            },
+            {
+              "key": "appid",
+              "value": "c4d133b015020c9b48164d3215dc5d93"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5 Day Forecast",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.openweathermap.org/data/2.5/forecast?q=Lagos&appid=c4d133b015020c9b48164d3215dc5d93&unit=metric&cnt=5",
+          "protocol": "https",
+          "host": [
+            "api",
+            "openweathermap",
+            "org"
+          ],
+          "path": [
+            "data",
+            "2.5",
+            "forecast"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Lagos"
+            },
+            {
+              "key": "appid",
+              "value": "c4d133b015020c9b48164d3215dc5d93"
+            },
+            {
+              "key": "unit",
+              "value": "metric"
+            },
+            {
+              "key": "cnt",
+              "value": "5",
+              "type": "text"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Geocoding",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://api.openweathermap.org/geo/1.0/direct?q=Lagos&appid=c4d133b015020c9b48164d3215dc5d93&limit=3",
+          "protocol": "http",
+          "host": [
+            "api",
+            "openweathermap",
+            "org"
+          ],
+          "path": [
+            "geo",
+            "1.0",
+            "direct"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Lagos"
+            },
+            {
+              "key": "appid",
+              "value": "c4d133b015020c9b48164d3215dc5d93"
+            },
+            {
+              "key": "limit",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
