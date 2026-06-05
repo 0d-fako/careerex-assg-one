@@ -1,7 +1,8 @@
 # OpenWeatherMap API — Postman Practical Assignment
-**Name:** Olumide D. Fakorede  
+**Name:** Olumide D. Fakorede 
 **Date:** June 2026  
-**Collection Name:** OpenWeatherMap API
+**Collection Name:** OpenWeatherMap API 
+
 ---
 
 ## Part 2 — Reading and Interpreting the Response
@@ -58,11 +59,12 @@ To receive temperature in **Fahrenheit**, use `units=imperial` instead.
 
 | Field | Value |
 |-------|-------|
-| Status Code | `404 Not Found` |
-| `cod` in body | `"404"` |
-| `message` in body | `"city not found"` |
+| Status Code | `200 OK` |
+| Response body | Empty / no weather data returned |
 
-The API returned a 404 error, meaning the server processed the request correctly but could not locate a matching city in its database. Notably, the `cod` field in the response body also echoes `"404"` as a string — OpenWeatherMap mirrors the HTTP status inside the JSON body, which is useful for client-side error handling without inspecting headers.
+Contrary to what might be expected, the API returned a **200 OK** status even for an unrecognised city name, with an empty response body rather than an error message. This is an example of **lenient API design** — the server technically fulfilled the request without crashing, but returned no useful data.
+
+This is an important distinction for developers building automations: a 200 status alone cannot be trusted as confirmation that valid data was returned. Any code consuming this API must also check that the response body contains the expected fields before acting on it. A robust implementation would validate that `name`, `main.temp`, and `weather` fields exist in the response before proceeding.
 
 ---
 
@@ -120,6 +122,5 @@ Affected routes are automatically flagged in the dispatch dashboard, drivers ass
 
 | Code | Meaning | When Observed |
 |------|---------|---------------|
-| `200 OK` | Success | All valid weather and forecast requests |
+| `200 OK` | Success | All valid requests — and misspelled city (returned empty body) |
 | `401 Unauthorized` | Missing or invalid API key | Request sent without `appid` parameter |
-| `404 Not Found` | City not found | Request sent with misspelled city name (`Lagoss`) |
