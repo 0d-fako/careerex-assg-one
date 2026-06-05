@@ -114,6 +114,78 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Wrong API Key",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://api.openweathermap.org/data/2.5/weather?q=Lagos&appid=c4d133b015020c9b48164d3215dc5d9&unit=metric",
+          "protocol": "https",
+          "host": [
+            "api",
+            "openweathermap",
+            "org"
+          ],
+          "path": [
+            "data",
+            "2.5",
+            "weather"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Lagos"
+            },
+            {
+              "key": "appid",
+              "value": "c4d133b015020c9b48164d3215dc5d9"
+            },
+            {
+              "key": "unit",
+              "value": "metric"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Misspelled City",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://api.openweathermap.org/geo/1.0/direct?q=Lagoss&appid=c4d133b015020c9b48164d3215dc5d93&limit=3",
+          "protocol": "http",
+          "host": [
+            "api",
+            "openweathermap",
+            "org"
+          ],
+          "path": [
+            "geo",
+            "1.0",
+            "direct"
+          ],
+          "query": [
+            {
+              "key": "q",
+              "value": "Lagoss"
+            },
+            {
+              "key": "appid",
+              "value": "c4d133b015020c9b48164d3215dc5d93"
+            },
+            {
+              "key": "limit",
+              "value": "3"
+            }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
